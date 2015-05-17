@@ -23,7 +23,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.post('/api/auth/twitter', require('./lib/auth/twitter'));
+app.post('/api/auth/facebook', require('./lib/auth/facebook'));
+app.post('/api/auth/google', require('./lib/auth/google'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
