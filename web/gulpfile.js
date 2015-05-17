@@ -8,7 +8,8 @@ var options = {
   src: 'src',
   dist: 'dist',
   tmp: '.tmp',
-  e2e: 'e2e',
+  testDir: __dirname + '/test',
+  e2e: __dirname + '/test/e2e',
   errorHandler: function(title) {
     return function(err) {
       gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
@@ -16,7 +17,7 @@ var options = {
     };
   },
   wiredep: {
-    directory: 'bower_components',
+    directory: __dirname + '/bower_components',
     exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap\.css/]
   }
 };

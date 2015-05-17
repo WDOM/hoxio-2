@@ -18,8 +18,8 @@ module.exports = function(options) {
     var bowerDeps = wiredep(wiredepOptions);
 
     var specFiles = [
-      options.src + '/**/*.spec.js',
-      options.src + '/**/*.mock.js'
+      options.testDir + '/unit/**/*.spec.js',
+      options.testDir + '/unit/**/*.mock.js'
     ];
 
     var htmlFiles = [
@@ -45,7 +45,7 @@ module.exports = function(options) {
   function runTests (singleRun, done) {
     listFiles(function(files) {
       karma.server.start({
-        configFile: __dirname + '/../karma.conf.js',
+        configFile: options.testDir + '/karma.conf.js',
         files: files,
         singleRun: singleRun,
         autoWatch: !singleRun
